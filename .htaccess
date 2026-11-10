@@ -1,0 +1,27 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 1. If accessed with /public in the URL, redirect to clean URL without /public
+    RewriteCond %{THE_REQUEST} /icset2027/public/([^\s?]*) [NC]
+    RewriteRule ^public/(.*)$ /icset2027/$1 [L,R=301]
+
+    # 2. Redirect /lang/(locale) to /icset2027/locale/$1 so users never hit the physical lang/ directory
+    RewriteRule ^lang/(en|id|zh|ar|ja)/?$ /icset2027/locale/$1 [R=302,L]
+
+    # 3. Block direct web access to sensitive files and internal directories
+    RewriteRule ^(\.env|\.git|composer\.|package\.|phpunit\.|artisan) - [F,L,NC]
+    RewriteRule ^(app|bootstrap|config|database|lang|resources|routes|tests|vendor)(/.*)?$ - [F,L,NC]
+
+    # 4. If file physically exists in project root (like index.php), stop rewrite
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # 5. If file exists inside public/ (e.g. Vite build assets, storage symlink), rewrite to public/
+    RewriteCond %{DOCUMENT_ROOT}/icset2027/public/$1 -f
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # 6. Route all other application requests to root index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
