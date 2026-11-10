@@ -16,15 +16,15 @@
             </a>
 
             <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center gap-5">
-                <a href="{{ route('home') }}#about" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('About') }}</a>
-                <a href="{{ route('home') }}#tracks" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Tracks') }}</a>
-                <a href="{{ route('home') }}#speakers" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Speakers') }}</a>
-                <a href="{{ route('home') }}#cfp" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Call for Papers') }}</a>
-                <a href="{{ route('home') }}#timeline" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Timeline') }}</a>
-                <a href="{{ route('home') }}#fees" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Fees') }}</a>
-                <a href="{{ route('home') }}#committee" class="text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Committee') }}</a>
-                <a href="{{ route('registration.check') }}" class="text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200">{{ __('Check Status') }}</a>
+            <nav class="hidden lg:flex items-center gap-4 xl:gap-5">
+                <a href="{{ route('home') }}#about" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('About') }}</a>
+                <a href="{{ route('home') }}#tracks" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Tracks') }}</a>
+                <a href="{{ route('home') }}#speakers" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Speakers') }}</a>
+                <a href="{{ route('home') }}#cfp" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Call for Papers') }}</a>
+                <a href="{{ route('home') }}#programme" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Programme') }}</a>
+                <a href="{{ route('home') }}#fees" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('Fees') }}</a>
+                <a href="{{ route('home') }}#faq" class="text-xs xl:text-sm font-medium text-slate-700 hover:text-emerald-600 transition-colors">{{ __('FAQ') }}</a>
+                <a href="{{ route('registration.check') }}" class="text-xs font-bold text-slate-600 hover:text-emerald-700 transition-colors px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200">{{ __('Check Status') }}</a>
             </nav>
 
             <!-- Action CTA -->
@@ -51,8 +51,10 @@
         <a href="{{ route('home') }}#tracks" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Tracks') }}</a>
         <a href="{{ route('home') }}#speakers" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Speakers') }}</a>
         <a href="{{ route('home') }}#cfp" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Call for Papers') }}</a>
-        <a href="{{ route('home') }}#timeline" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Timeline') }}</a>
+        <a href="{{ route('home') }}#programme" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Programme') }}</a>
         <a href="{{ route('home') }}#fees" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Fees') }}</a>
+        <a href="{{ route('home') }}#faq" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('FAQ') }}</a>
+        <a href="{{ route('conference.brochure') }}" target="_blank" class="block px-3 py-2 rounded-lg text-base font-medium text-sky-700 hover:bg-sky-50">{{ __('Download Brochure') }}</a>
         <a href="{{ route('registration.check') }}" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-emerald-600">{{ __('Check Status') }}</a>
         
         <!-- Mobile Languages -->

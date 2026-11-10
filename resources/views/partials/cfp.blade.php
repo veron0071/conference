@@ -104,8 +104,13 @@
                         </a>
 
                         <a href="#" onclick="alert('The E3S Conference Template will be downloadable upon Call for Papers launch on 01 December 2026.'); return false;" class="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-white bg-slate-700/80 hover:bg-slate-600 border border-slate-500 transition-colors shadow">
-                            <i data-lucide="download" class="w-4 h-4"></i>
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
                             <span>{{ __('Download E3S Template (.docx)') }}</span>
+                        </a>
+
+                        <a href="{{ route('conference.brochure') }}" target="_blank" class="flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-sky-200 bg-sky-950/80 hover:bg-sky-900 border border-sky-500/40 transition-colors shadow">
+                            <i data-lucide="download" class="w-4 h-4 text-sky-400"></i>
+                            <span>{{ __('Download Official Brochure & CFP Flyer') }}</span>
                         </a>
                     </div>
 

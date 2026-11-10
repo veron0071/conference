@@ -42,4 +42,15 @@ class ConferenceController extends Controller
 
         return view('conference.index', compact('conference', 'tracks', 'speakers', 'timeline', 'committee', 'fees'));
     }
+
+    public function brochure()
+    {
+        $conference = ConferenceSetting::getAllAsArray();
+        $tracks = Track::with('topics')->where('is_active', true)->orderBy('order')->get();
+        $speakers = Speaker::where('is_active', true)->orderBy('order')->get();
+        $timeline = Timeline::where('is_active', true)->orderBy('order')->get();
+        $fees = RegistrationFee::where('is_active', true)->orderBy('order')->get();
+
+        return view('conference.brochure', compact('conference', 'tracks', 'speakers', 'timeline', 'fees'));
+    }
 }

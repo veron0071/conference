@@ -17,6 +17,7 @@ Route::get('/tracks', [ConferenceController::class, 'index'])->name('tracks');
 Route::get('/speakers', [ConferenceController::class, 'index'])->name('speakers');
 Route::get('/call-for-papers', [ConferenceController::class, 'index'])->name('cfp');
 Route::get('/committee', [ConferenceController::class, 'index'])->name('committee');
+Route::get('/conference-brochure', [ConferenceController::class, 'brochure'])->name('conference.brochure');
 
 // Participant Registration Routes
 Route::get('/register-participant', [RegistrationController::class, 'index'])->name('registration.index');

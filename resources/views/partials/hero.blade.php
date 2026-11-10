@@ -64,7 +64,7 @@
             </div>
 
             <!-- Action Buttons -->
-            <div class="flex flex-wrap items-center justify-center gap-4">
+            <div class="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
                 <a href="{{ route('registration.index') }}" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-extrabold text-base text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-xl shadow-emerald-500/30 hover:scale-105 transition-all duration-200">
                     <i data-lucide="user-plus" class="w-5 h-5"></i>
                     <span>{{ __('Register Participant') }}</span>
@@ -73,30 +73,38 @@
                     <i data-lucide="send" class="w-5 h-5"></i>
                     <span>{{ __('Call for Papers') }}</span>
                 </a>
-                <a href="#tracks" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 transition-colors">
-                    <span>{{ __('Explore 6 Tracks') }}</span>
-                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                <a href="{{ route('conference.brochure') }}" target="_blank" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-sky-200 bg-sky-950/80 hover:bg-sky-900 border border-sky-500/40 shadow-lg hover:scale-105 transition-all duration-200">
+                    <i data-lucide="download" class="w-4 h-4 text-sky-400"></i>
+                    <span>{{ __('Download Brochure') }}</span>
+                </a>
+                <a href="#programme" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/30 transition-colors">
+                    <i data-lucide="clock" class="w-4 h-4 text-emerald-400"></i>
+                    <span>{{ __('Daily Programme') }}</span>
                 </a>
             </div>
         </div>
 
-        <!-- Metric Badges Row -->
-        <div class="mt-16 pt-12 border-t border-emerald-500/20 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
+        <!-- Metric Badges Row (5 Prestige Stats) -->
+        <div class="mt-16 pt-12 border-t border-emerald-500/20 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 text-center">
+            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <span class="block text-3xl sm:text-4xl font-extrabold text-emerald-400">6</span>
-                <span class="text-xs sm:text-sm text-slate-300 mt-1 block">{{ __('Interdisciplinary Tracks') }}</span>
+                <span class="text-xs sm:text-sm text-slate-300 mt-1 block font-medium">{{ __('Interdisciplinary Tracks') }}</span>
             </div>
-            <div>
-                <span class="block text-3xl sm:text-4xl font-extrabold text-teal-300">4+</span>
-                <span class="text-xs sm:text-sm text-slate-300 mt-1 block">{{ __('Global Confirmed Speakers') }}</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <span class="block text-3xl sm:text-4xl font-extrabold text-teal-300">4</span>
+                <span class="text-xs sm:text-sm text-slate-300 mt-1 block font-medium">{{ __('Continents Represented') }}</span>
             </div>
-            <div>
+            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <span class="block text-3xl sm:text-4xl font-extrabold text-sky-400">Scopus</span>
-                <span class="text-xs sm:text-sm text-slate-300 mt-1 block">{{ __('Proceedings Publication') }}</span>
+                <span class="text-xs sm:text-sm text-slate-300 mt-1 block font-medium">{{ __('Proceedings Publication') }}</span>
             </div>
-            <div>
-                <span class="block text-3xl sm:text-4xl font-extrabold text-amber-300">01 Dec</span>
-                <span class="text-xs sm:text-sm text-slate-300 mt-1 block">{{ __('Call for Papers Launch') }}</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <span class="block text-3xl sm:text-4xl font-extrabold text-indigo-300">50+</span>
+                <span class="text-xs sm:text-sm text-slate-300 mt-1 block font-medium">{{ __('Curated Research Topics') }}</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm col-span-2 sm:col-span-1">
+                <span class="block text-3xl sm:text-4xl font-extrabold text-amber-300">2 Days</span>
+                <span class="text-xs sm:text-sm text-slate-300 mt-1 block font-medium">{{ __('Hybrid Conference') }}</span>
             </div>
         </div>
     </div>

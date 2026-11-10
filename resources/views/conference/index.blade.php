@@ -21,11 +21,20 @@
     {{-- Publications & Scopus Indexing --}}
     @include('partials.publications')
 
+    {{-- Academic Partners & Sponsors --}}
+    @include('partials.partners')
+
     {{-- Important Dates & Timeline --}}
     @include('partials.timeline')
 
+    {{-- 2-Day Conference Daily Programme (Day 1 vs Day 2) --}}
+    @include('partials.programme')
+
     {{-- Registration Fees --}}
     @include('partials.fees')
+
+    {{-- Frequently Asked Questions (FAQ) --}}
+    @include('partials.faq')
 
     {{-- Committee & Organization --}}
     @include('partials.committee')
