@@ -361,5 +361,8 @@ class DatabaseSeeder extends Seeder
         foreach ($committees as $comm) {
             Committee::updateOrCreate(['name' => $comm['name']], $comm);
         }
+
+        // 8. Dynamic Programme Rundown, FAQs, and Partners
+        $this->call(DynamicSectionsSeeder::class);
     }
 }

@@ -22,25 +22,25 @@
 
         <!-- Honorary Keynote Card -->
         @if($keynote)
-        <div class="mb-14 icset-keynote-card bg-slate-950 rounded-3xl p-8 sm:p-10 text-white shadow-2xl border-2 border-emerald-500/40 relative overflow-hidden">
+        <div class="mb-14 bg-slate-950 bg-gradient-to-r from-slate-950 via-emerald-950 to-slate-950 rounded-3xl p-8 sm:p-10 text-white shadow-2xl border-2 border-emerald-500/50 relative overflow-hidden">
             <div class="absolute right-0 top-0 translate-x-12 -translate-y-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div class="lg:col-span-8 space-y-4">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-500/40">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/25 text-emerald-300 text-xs font-bold uppercase tracking-wider border border-emerald-400/50">
                         <i data-lucide="star" class="w-3.5 h-3.5 text-amber-300"></i>
                         <span>{{ __($keynote->role) }}</span>
                     </div>
                     <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
                         {{ $keynote->name }}
                     </h3>
-                    <p class="text-emerald-300 font-bold text-sm sm:text-base">
+                    <p class="text-emerald-400 font-extrabold text-sm sm:text-base">
                         {{ $keynote->institution }}
                     </p>
                     <p class="text-slate-100 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
                         {{ __($keynote->bio ?? 'Delivering the national strategic perspective on integrating artificial intelligence, research commercialization, and responsible business governance to accelerate Indonesia\'s sustainable economic transition towards Golden Indonesia 2045.') }}
                     </p>
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-400/20 border border-amber-400/40 text-amber-200 text-xs font-semibold">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-400/20 border border-amber-400/50 text-amber-200 text-xs font-bold">
                         <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
                         <span>{{ __('Keynote speaker invitation in official coordination with university leadership') }}</span>
                     </div>
@@ -71,11 +71,11 @@
                         <span class="text-xl" title="{{ $spk->country }}">{{ $spk->flag ?? '🌐' }}</span>
                     </div>
 
-                    <div class="w-24 h-24 mx-auto rounded-2xl icset-speaker-avatar flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-emerald-900/30 mb-5 group-hover:scale-105 transition-transform overflow-hidden border-2 border-emerald-400/40">
+                    <div class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-900 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-emerald-900/40 mb-5 group-hover:scale-105 transition-transform overflow-hidden border-2 border-emerald-400/60">
                         @if($spk->image)
                             <img src="{{ asset('storage/' . $spk->image) }}" alt="{{ $spk->name }}" class="w-full h-full object-cover">
                         @else
-                            {{ strtoupper(substr($spk->name, 0, 2)) }}
+                            <span class="text-white drop-shadow">{{ strtoupper(substr($spk->name, 0, 2)) }}</span>
                         @endif
                     </div>
 

@@ -71,8 +71,8 @@
                     <!-- Accent background decor -->
                     <div class="absolute -inset-2 bg-gradient-to-r from-emerald-500 to-sky-500 rounded-3xl blur-xl opacity-20"></div>
 
-                    <div class="relative icset-factsheet-card rounded-3xl p-8 text-white shadow-2xl border border-slate-700/80">
-                        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-700">
+                    <div class="relative bg-slate-900 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 rounded-3xl p-8 text-white shadow-2xl border-2 border-emerald-500/40">
+                        <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-700/80">
                             <div class="flex items-center gap-3">
                                 <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-slate-950 flex items-center justify-center font-black text-xl shadow-md shadow-emerald-500/30">
                                     I
@@ -88,23 +88,23 @@
                         </div>
 
                         <div class="space-y-4">
-                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/70 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/80 text-sm">
                                 <span class="text-slate-200 font-semibold">{{ __('Host Institution') }}</span>
                                 <span class="font-bold text-white text-right">FEB UNWAHAS</span>
                             </div>
-                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/70 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/80 text-sm">
                                 <span class="text-slate-200 font-semibold">{{ __('Plenary Venue') }}</span>
                                 <span class="font-bold text-white text-right">{{ __('Kampus 2 Gedung CBT') }}</span>
                             </div>
-                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/70 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/80 text-sm">
                                 <span class="text-slate-200 font-semibold">{{ __('Track Sessions') }}</span>
                                 <span class="font-bold text-white text-right">{{ __('Fakultas Kedokteran') }}</span>
                             </div>
-                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/70 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/80 text-sm">
                                 <span class="text-slate-200 font-semibold">{{ __('CFP Launch Date') }}</span>
-                                <span class="font-bold text-emerald-300 text-right">{{ __('01 December 2026') }}</span>
+                                <span class="font-bold text-emerald-400 text-right">{{ __('01 December 2026') }}</span>
                             </div>
-                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/70 text-sm">
+                            <div class="flex justify-between items-center py-2.5 border-b border-slate-700/80 text-sm">
                                 <span class="text-slate-200 font-semibold">{{ __('Submission System') }}</span>
                                 <span class="font-bold text-white text-right">OJS UNWAHAS Portal</span>
                             </div>
@@ -114,7 +114,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-8 pt-6 border-t border-slate-700">
+                        <div class="mt-8 pt-6 border-t border-slate-700/80">
                             <a href="#cfp" class="block w-full py-3.5 px-4 rounded-xl text-center text-sm font-extrabold text-slate-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-lg hover:shadow-emerald-400/20">
                                 {{ __('Prepare Your Manuscript') }}
                             </a>

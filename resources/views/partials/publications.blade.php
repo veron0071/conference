@@ -19,7 +19,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             
             <!-- Card 1: Scopus Proceedings (Target: E3S / IOP / Atlantis Press) -->
-            <div class="icset-proceedings-card bg-slate-950 text-white rounded-3xl p-8 border-2 border-emerald-500/40 shadow-2xl relative overflow-hidden flex flex-col justify-between">
+            <div class="bg-slate-950 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden flex flex-col justify-between">
                 <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="mt-8 pt-4 border-t border-slate-700/80">
-                    <span class="text-xs text-slate-200 font-semibold">
+                    <span class="inline-block px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-slate-200 font-semibold">
                         {{ __('*Final indexing depends on publisher evaluation and Scopus compliance.') }}
                     </span>
                 </div>

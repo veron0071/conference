@@ -59,6 +59,26 @@
                         <span>Timeline & Dates</span>
                     </a>
 
+                    <a href="{{ route('admin.programmes') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.programmes*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>Programme Schedule</span>
+                    </a>
+
+                    <a href="{{ route('admin.faqs') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.faqs*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        <span>FAQs</span>
+                    </a>
+
+                    <a href="{{ route('admin.partners') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.partners*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
+                        <i data-lucide="building-2" class="w-4 h-4"></i>
+                        <span>Partners & Sponsors</span>
+                    </a>
+
+                    <a href="{{ route('admin.fees') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.fees*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
+                        <i data-lucide="tag" class="w-4 h-4"></i>
+                        <span>Registration Fees</span>
+                    </a>
+
                     <a href="{{ route('admin.settings') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.settings*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
                         <i data-lucide="settings" class="w-4 h-4"></i>
                         <span>Conference Settings</span>

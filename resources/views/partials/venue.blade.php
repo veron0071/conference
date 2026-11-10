@@ -87,7 +87,7 @@
 
             <!-- Right Visual / Map Graphic -->
             <div class="lg:col-span-5">
-                <div class="icset-venue-card rounded-3xl p-8 text-white border-2 border-emerald-500/40 shadow-2xl relative overflow-hidden">
+                <div class="bg-slate-900 bg-gradient-to-br from-slate-950 via-slate-900 to-emerald-950 rounded-3xl p-8 text-white border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden">
                     <div class="w-16 h-16 rounded-2xl bg-emerald-500 text-slate-950 flex items-center justify-center mb-6 shadow-md shadow-emerald-500/30">
                         <i data-lucide="compass" class="w-8 h-8"></i>
                     </div>

@@ -20,7 +20,7 @@
             @foreach($fees as $fee)
             <div class="rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 relative
                 @if($fee->is_featured)
-                    icset-featured-pricing-card text-white border-2 border-emerald-400 shadow-2xl scale-105 z-10
+                    bg-slate-900 bg-gradient-to-b from-slate-900 via-slate-900 to-emerald-950 text-white border-2 border-emerald-400 shadow-2xl scale-105 z-10
                 @else
                     bg-white text-slate-800 border border-slate-200 shadow-sm hover:shadow-lg
                 @endif">

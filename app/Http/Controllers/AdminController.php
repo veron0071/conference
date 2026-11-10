@@ -11,6 +11,9 @@ use App\Models\Timeline;
 use App\Models\RegistrationFee;
 use App\Models\Committee;
 use App\Models\Registration;
+use App\Models\ProgrammeSession;
+use App\Models\Faq;
+use App\Models\Partner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -251,5 +254,175 @@ class AdminController extends Controller
         }
 
         return back()->with('success', 'Conference settings updated successfully.');
+    }
+
+    // ==================== PROGRAMME SESSIONS ====================
+    public function programmes()
+    {
+        $programmes = ProgrammeSession::orderBy('day')->orderBy('order')->get();
+        return view('admin.programmes.index', compact('programmes'));
+    }
+
+    public function storeProgramme(Request $request)
+    {
+        $validated = $request->validate([
+            'day' => 'required|integer|in:1,2',
+            'time_start' => 'required|string|max:20',
+            'time_end' => 'nullable|string|max:20',
+            'time_label' => 'required|string|max:100',
+            'badge' => 'required|string|max:100',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'location' => 'nullable|string|max:150',
+            'order' => 'required|integer',
+        ]);
+
+        ProgrammeSession::create($validated);
+        return back()->with('success', 'Programme session added successfully.');
+    }
+
+    public function updateProgramme(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'day' => 'required|integer|in:1,2',
+            'time_start' => 'required|string|max:20',
+            'time_end' => 'nullable|string|max:20',
+            'time_label' => 'required|string|max:100',
+            'badge' => 'required|string|max:100',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'location' => 'nullable|string|max:150',
+            'order' => 'required|integer',
+        ]);
+
+        $session = ProgrammeSession::findOrFail($id);
+        $session->update($validated);
+        return back()->with('success', 'Programme session updated successfully.');
+    }
+
+    public function deleteProgramme($id)
+    {
+        $session = ProgrammeSession::findOrFail($id);
+        $session->delete();
+        return back()->with('success', 'Programme session deleted.');
+    }
+
+    // ==================== FAQS ====================
+    public function faqs()
+    {
+        $faqs = Faq::orderBy('order')->get();
+        return view('admin.faqs.index', compact('faqs'));
+    }
+
+    public function storeFaq(Request $request)
+    {
+        $validated = $request->validate([
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
+            'category' => 'required|string|max:100',
+            'order' => 'required|integer',
+        ]);
+
+        Faq::create($validated);
+        return back()->with('success', 'FAQ added successfully.');
+    }
+
+    public function updateFaq(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'question' => 'required|string|max:255',
+            'answer' => 'required|string',
+            'category' => 'required|string|max:100',
+            'order' => 'required|integer',
+        ]);
+
+        $faq = Faq::findOrFail($id);
+        $faq->update($validated);
+        return back()->with('success', 'FAQ updated successfully.');
+    }
+
+    public function deleteFaq($id)
+    {
+        $faq = Faq::findOrFail($id);
+        $faq->delete();
+        return back()->with('success', 'FAQ removed.');
+    }
+
+    // ==================== PARTNERS & SPONSORS ====================
+    public function partners()
+    {
+        $partners = Partner::orderBy('order')->get();
+        return view('admin.partners.index', compact('partners'));
+    }
+
+    public function storePartner(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|in:indexing,university,sponsor',
+            'subtitle' => 'nullable|string|max:255',
+            'logo_abbr' => 'nullable|string|max:20',
+            'color' => 'required|string|max:30',
+            'order' => 'required|integer',
+        ]);
+
+        Partner::create($validated);
+        return back()->with('success', 'Partner/Sponsor added successfully.');
+    }
+
+    public function updatePartner(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'category' => 'required|string|in:indexing,university,sponsor',
+            'subtitle' => 'nullable|string|max:255',
+            'logo_abbr' => 'nullable|string|max:20',
+            'color' => 'required|string|max:30',
+            'order' => 'required|integer',
+        ]);
+
+        $partner = Partner::findOrFail($id);
+        $partner->update($validated);
+        return back()->with('success', 'Partner/Sponsor updated successfully.');
+    }
+
+    public function deletePartner($id)
+    {
+        $partner = Partner::findOrFail($id);
+        $partner->delete();
+        return back()->with('success', 'Partner/Sponsor removed.');
+    }
+
+    // ==================== REGISTRATION FEES ====================
+    public function fees()
+    {
+        $fees = RegistrationFee::orderBy('order')->get();
+        return view('admin.fees.index', compact('fees'));
+    }
+
+    public function updateFee(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'early_bird' => 'required|string|max:100',
+            'regular' => 'required|string|max:100',
+            'is_featured' => 'nullable|boolean',
+            'features_text' => 'nullable|string',
+        ]);
+
+        $fee = RegistrationFee::findOrFail($id);
+
+        $features = $fee->features;
+        if ($request->filled('features_text')) {
+            $features = array_filter(array_map('trim', explode("\n", $request->features_text)));
+        }
+
+        $fee->update([
+            'early_bird' => $validated['early_bird'],
+            'regular' => $validated['regular'],
+            'is_featured' => $request->boolean('is_featured'),
+            'features' => array_values($features),
+        ]);
+
+        return back()->with('success', 'Registration fee tier updated successfully.');
     }
 }

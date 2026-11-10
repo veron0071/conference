@@ -57,6 +57,28 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::post('/timelines', [AdminController::class, 'storeTimeline'])->name('timelines.store');
     Route::delete('/timelines/{id}', [AdminController::class, 'deleteTimeline'])->name('timelines.delete');
 
+    // Programme Sessions
+    Route::get('/programmes', [AdminController::class, 'programmes'])->name('programmes');
+    Route::post('/programmes', [AdminController::class, 'storeProgramme'])->name('programmes.store');
+    Route::put('/programmes/{id}', [AdminController::class, 'updateProgramme'])->name('programmes.update');
+    Route::delete('/programmes/{id}', [AdminController::class, 'deleteProgramme'])->name('programmes.delete');
+
+    // FAQs Management
+    Route::get('/faqs', [AdminController::class, 'faqs'])->name('faqs');
+    Route::post('/faqs', [AdminController::class, 'storeFaq'])->name('faqs.store');
+    Route::put('/faqs/{id}', [AdminController::class, 'updateFaq'])->name('faqs.update');
+    Route::delete('/faqs/{id}', [AdminController::class, 'deleteFaq'])->name('faqs.delete');
+
+    // Partners & Sponsors Management
+    Route::get('/partners', [AdminController::class, 'partners'])->name('partners');
+    Route::post('/partners', [AdminController::class, 'storePartner'])->name('partners.store');
+    Route::put('/partners/{id}', [AdminController::class, 'updatePartner'])->name('partners.update');
+    Route::delete('/partners/{id}', [AdminController::class, 'deletePartner'])->name('partners.delete');
+
+    // Registration Fees Management
+    Route::get('/fees', [AdminController::class, 'fees'])->name('fees');
+    Route::put('/fees/{id}', [AdminController::class, 'updateFee'])->name('fees.update');
+
     // Conference Settings
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
     Route::post('/settings', [AdminController::class, 'updateSettings'])->name('settings.update');
