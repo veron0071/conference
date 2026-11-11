@@ -186,6 +186,9 @@
     <!-- Floating Language Selector (Pojok Kiri Bawah) -->
     @include('partials.language-floating')
 
+    <!-- Floating Action Buttons: Contact Us & Check Status (Pojok Kanan Bawah) -->
+    @include('partials.floating-actions')
+
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -202,12 +205,13 @@
         // Active Navbar on Scroll
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('main-nav');
+            if (!navbar) return;
             if (window.scrollY > 20) {
-                navbar.classList.add('shadow-md', 'bg-white/95');
-                navbar.classList.remove('bg-white/80');
+                navbar.classList.add('shadow-xl', 'bg-[#800020]');
+                navbar.classList.remove('bg-[#800020]/95');
             } else {
-                navbar.classList.remove('shadow-md', 'bg-white/95');
-                navbar.classList.add('bg-white/80');
+                navbar.classList.remove('shadow-xl', 'bg-[#800020]');
+                navbar.classList.add('bg-[#800020]/95');
             }
         });
     </script>

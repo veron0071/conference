@@ -158,6 +158,57 @@
                 </div>
             </div>
 
+            <!-- Section: Floating Contact Us Widget Settings -->
+            <div class="space-y-4 pt-4 border-t border-slate-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">5. Floating "Contact Us" Button & Secretariat Helpdesk</h4>
+                        <p class="text-[11px] text-slate-500">Atur tombol melayang "Contact Us" yang tampil di atas tombol "Check Status" di pojok kanan bawah.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Status Floating Button</label>
+                        <select name="contact_floating_enabled" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-white">
+                            <option value="1" {{ ($settings['contact_floating_enabled'] ?? '1') == '1' ? 'selected' : '' }}>✅ Aktif (Tampilkan Tombol Contact Us)</option>
+                            <option value="0" {{ ($settings['contact_floating_enabled'] ?? '1') == '0' ? 'selected' : '' }}>❌ Nonaktif (Sembunyikan)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Nama Narahubung / Unit Secretariat</label>
+                        <input type="text" name="contact_whatsapp_name" value="{{ $settings['contact_whatsapp_name'] ?? 'Sekretariat ICSET FEB UNWAHAS' }}"
+                            placeholder="Sekretariat ICSET FEB UNWAHAS"
+                            class="w-full px-3 py-2.5 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Nomor WhatsApp (Angka saja dengan kode 62)</label>
+                        <input type="text" name="contact_whatsapp_number" value="{{ $settings['contact_whatsapp_number'] ?? '6281225001927' }}"
+                            placeholder="6281225001927"
+                            class="w-full px-3 py-2.5 rounded-xl border border-slate-200">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Email Narahubung / Support</label>
+                        <input type="email" name="contact_email" value="{{ $settings['contact_email'] ?? $settings['email'] ?? 'icset@unwahas.ac.id' }}"
+                            placeholder="icset@unwahas.ac.id"
+                            class="w-full px-3 py-2.5 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Pesan Awal WhatsApp Otomatis (Pre-filled Message)</label>
+                        <input type="text" name="contact_whatsapp_message" value="{{ $settings['contact_whatsapp_message'] ?? 'Halo Panitia ICSET 2027, saya ingin bertanya seputar pendaftaran & pelaksanaan konferensi.' }}"
+                            class="w-full px-3 py-2.5 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Jam Operasional / Informasi Tambahan</label>
+                        <input type="text" name="contact_office_hours" value="{{ $settings['contact_office_hours'] ?? 'Senin – Jumat: 08:00 – 16:00 WIB • Kampus 2 UNWAHAS' }}"
+                            class="w-full px-3 py-2.5 rounded-xl border border-slate-200">
+                    </div>
+                </div>
+            </div>
+
             <div class="pt-6 border-t border-slate-100 text-right">
                 <button type="submit" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors">
                     Save Conference Settings
