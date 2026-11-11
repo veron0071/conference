@@ -71,13 +71,21 @@
         </div>
 
         <!-- Bottom bar -->
-        <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-            <p>© 2026 - 2027 ICSET Organizing Committee. All rights reserved.</p>
-            <div class="flex items-center gap-4">
+        <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center md:text-left">
+            <div>
+                <p>© 2026 - 2027 ICSET Organizing Committee. All rights reserved.</p>
+                <p class="text-[11px] text-slate-400 mt-1.5 flex items-center justify-center md:justify-start gap-1.5">
+                    <span>{{ __('Developed & Powered by') }}</span>
+                    <a href="https://uptpsid.unwahas.ac.id/" target="_blank" rel="noopener noreferrer" class="font-bold text-[#F3E6D5] hover:text-[#D45060] underline decoration-[#D45060]/50 underline-offset-2 transition-colors">
+                        UPT PSID UNWAHAS
+                    </a>
+                </p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-slate-300">
                 <span>Faculty of Economics and Business</span>
-                <span>•</span>
+                <span class="text-white/20">•</span>
                 <span>Universitas Wahid Hasyim</span>
-                <span>•</span>
+                <span class="text-white/20">•</span>
                 <a href="{{ route('admin.login') }}" class="text-slate-300 hover:text-[#D45060] font-semibold transition-colors">{{ __('Admin Portal') }}</a>
             </div>
         </div>
