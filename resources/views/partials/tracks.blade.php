@@ -1,10 +1,10 @@
-<section id="tracks" class="py-20 lg:py-28 bg-slate-50 relative border-t border-slate-200">
+<section id="tracks" class="py-20 lg:py-28 bg-[#F4F4F4] relative border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200">
-                <i data-lucide="layers" class="w-4 h-4"></i>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white text-[#005461] text-xs font-bold uppercase tracking-wider mb-4 border border-[#018790]/30 shadow-sm">
+                <i data-lucide="layers" class="w-4 h-4 text-[#018790]"></i>
                 <span>{{ __('Conference Tracks & Scope') }}</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -22,10 +22,10 @@
                 <div>
                     <!-- Track Header -->
                     <div class="flex items-center justify-between mb-5">
-                        <span class="text-xs font-mono font-extrabold px-3 py-1 rounded-full bg-slate-100 text-slate-700 tracking-wider border border-slate-200">
+                        <span class="text-xs font-mono font-extrabold px-3 py-1 rounded-full bg-[#F4F4F4] text-[#005461] tracking-wider border border-slate-200">
                             {{ $track->code }}
                         </span>
-                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
+                        <div class="w-10 h-10 rounded-xl bg-[#F4F4F4] text-[#005461] border border-slate-200 flex items-center justify-center group-hover:bg-[#005461] group-hover:text-white transition-colors duration-300">
                             @if($track->icon == 'trending-up')
                                 <i data-lucide="trending-up" class="w-5 h-5"></i>
                             @elseif($track->icon == 'briefcase')
@@ -43,7 +43,7 @@
                     </div>
 
                     <!-- Track Title -->
-                    <h3 class="text-xl font-bold text-slate-900 mb-4 leading-snug group-hover:text-emerald-700 transition-colors">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 leading-snug group-hover:text-[#005461] transition-colors">
                         {{ __($track->title) }}
                     </h3>
 
@@ -53,7 +53,7 @@
                         <ul class="space-y-2">
                             @foreach($track->topics as $topic)
                             <li class="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600">
-                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 flex-shrink-0"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#018790] mt-1.5 flex-shrink-0"></span>
                                 <span>{{ __($topic->name) }}</span>
                             </li>
                             @endforeach
@@ -63,7 +63,7 @@
 
                 <!-- Footer button in card -->
                 <div class="mt-6 pt-5 border-t border-slate-100">
-                    <a href="{{ route('registration.index', ['track' => $track->id]) }}" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-slate-50 hover:bg-emerald-600 text-slate-700 hover:text-white font-bold text-xs border border-slate-200 hover:border-emerald-600 transition-all duration-200">
+                    <a href="{{ route('registration.index', ['track' => $track->id]) }}" class="inline-flex items-center justify-between w-full px-4 py-2.5 rounded-xl bg-[#F4F4F4] hover:bg-[#005461] text-[#005461] hover:text-white font-bold text-xs border border-slate-200 hover:border-[#005461] transition-all duration-200">
                         <span>{{ __('Register for this Track') }}</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
@@ -73,17 +73,17 @@
         </div>
 
         <!-- Track note banner -->
-        <div class="mt-12 p-6 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="mt-12 p-6 rounded-2xl bg-white border border-[#018790]/30 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0">
-                    <i data-lucide="help-circle" class="w-6 h-6"></i>
+                <div class="w-12 h-12 rounded-xl bg-[#005461] text-white flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="help-circle" class="w-6 h-6 text-[#00B7B5]"></i>
                 </div>
                 <div>
                     <h4 class="text-base font-bold text-slate-900">{{ __('Unsure which track fits your manuscript?') }}</h4>
                     <p class="text-xs sm:text-sm text-slate-600">{{ __('Our scientific committee will review your abstract and assign it to the most relevant track.') }}</p>
                 </div>
             </div>
-            <a href="{{ route('registration.index') }}" class="px-6 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs sm:text-sm font-bold whitespace-nowrap shadow-md transition-colors">
+            <a href="{{ route('registration.index') }}" class="px-6 py-3 rounded-xl bg-[#005461] hover:bg-[#018790] text-white text-xs sm:text-sm font-bold whitespace-nowrap shadow-sm transition-colors">
                 {{ __('Register as Author / Participant') }}
             </a>
         </div>

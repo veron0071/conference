@@ -4,7 +4,14 @@
 @section('header_title', '2-Day Programme Schedule Management')
 
 @section('content')
-<div class="space-y-6">
+<div class="space-y-6" x-data="{ 
+    editOpen: false, 
+    editData: {}, 
+    openEditModal(prog) { 
+        this.editData = Object.assign({}, prog); 
+        this.editOpen = true; 
+    } 
+}">
 
     <!-- Add Programme Session Form -->
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
@@ -112,14 +119,22 @@
                         <td class="py-3 px-4 font-bold text-slate-600">
                             {{ $prog->order }}
                         </td>
-                        <td class="py-3 px-4 text-right">
-                            <form action="{{ route('admin.programmes.delete', $prog->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this session?');" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Delete">
-                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        <td class="py-3 px-4 text-right whitespace-nowrap">
+                            <div class="flex items-center justify-end gap-1.5">
+                                <button type="button" 
+                                        @click="openEditModal({{ json_encode($prog) }})" 
+                                        class="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors" 
+                                        title="Edit Session">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
                                 </button>
-                            </form>
+                                <form action="{{ route('admin.programmes.delete', $prog->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this session?');" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Delete">
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @empty
@@ -131,6 +146,91 @@
                     @endforelse
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- Edit Programme Modal -->
+    <div x-show="editOpen" 
+         x-cloak 
+         class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4"
+         @keydown.escape.window="editOpen = false">
+        
+        <div class="bg-white w-full max-w-xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden" 
+             @click.away="editOpen = false">
+            
+            <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="edit-3" class="w-4 h-4 text-emerald-600"></i>
+                    <h3 class="text-sm font-bold text-slate-900">Edit Programme Session</h3>
+                </div>
+                <button type="button" @click="editOpen = false" class="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-200/60 transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <form :action="'{{ url('/admin/programmes') }}/' + editData.id" method="POST" class="p-6 space-y-4 text-xs">
+                @csrf
+                @method('PUT')
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Day</label>
+                        <select name="day" x-model="editData.day" required class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="1">Day 1: Tuesday, 03 August 2027 (Plenary)</option>
+                            <option value="2">Day 2: Wednesday, 04 August 2027 (Breakout)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Start Time</label>
+                        <input type="text" name="time_start" x-model="editData.time_start" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">End Time (optional)</label>
+                        <input type="text" name="time_end" x-model="editData.time_end" class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Time Label</label>
+                        <input type="text" name="time_label" x-model="editData.time_label" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Badge Tag</label>
+                        <input type="text" name="badge" x-model="editData.badge" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Location / Room</label>
+                        <input type="text" name="location" x-model="editData.location" class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Session Title</label>
+                        <input type="text" name="title" x-model="editData.title" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Session Description / Moderator</label>
+                        <textarea name="description" x-model="editData.description" rows="2" class="w-full px-3 py-2 rounded-xl border border-slate-200"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Display Order</label>
+                        <input type="number" name="order" x-model="editData.order" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-end gap-2">
+                    <button type="button" @click="editOpen = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 

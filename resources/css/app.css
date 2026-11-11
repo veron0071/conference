@@ -7,56 +7,57 @@
 
 @theme {
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    --color-brand-50: #ecfdf5;
-    --color-brand-100: #d1fae5;
-    --color-brand-200: #a7f3d0;
-    --color-brand-500: #10b981;
-    --color-brand-600: #059669;
-    --color-brand-700: #047857;
-    --color-brand-800: #065f46;
-    --color-brand-900: #064e3b;
-    --color-brand-950: #022c22;
+    
+    --color-petrol: #005461;
+    --color-teal-mid: #018790;
+    --color-mint-accent: #00B7B5;
+    --color-offwhite: #F4F4F4;
+
+    --color-brand-primary: #005461;
+    --color-brand-secondary: #018790;
+    --color-brand-accent: #00B7B5;
+    --color-brand-light: #F4F4F4;
 }
 
-/* High-contrast rock-solid styles to prevent any CSS gradient fallback issues */
+/* Professional solid components using Teal & Mint palette (No gradients) */
 .icset-factsheet-card {
-    background-color: #0f172a;
-    background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #064e3b 100%);
+    background-color: #005461;
     color: #ffffff;
+    border: 1px solid rgba(0, 183, 181, 0.35);
 }
 
 .icset-keynote-card {
-    background-color: #022c22;
-    background-image: linear-gradient(90deg, #0f172a 0%, #022c22 50%, #0f172a 100%);
+    background-color: #005461;
     color: #ffffff;
+    border: 1px solid rgba(0, 183, 181, 0.35);
 }
 
 .icset-speaker-avatar {
-    background-color: #047857 !important;
-    background-image: linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%) !important;
+    background-color: #018790 !important;
     color: #ffffff !important;
+    font-weight: 800 !important;
 }
 
 .icset-proceedings-card {
-    background-color: #022c22;
-    background-image: linear-gradient(135deg, #022c22 0%, #0f172a 50%, #0f172a 100%);
+    background-color: #005461;
     color: #ffffff;
+    border: 1px solid rgba(0, 183, 181, 0.35);
 }
 
 .icset-featured-pricing-card {
-    background-color: #0f172a !important;
-    background-image: linear-gradient(180deg, #0f172a 0%, #064e3b 100%) !important;
+    background-color: #005461 !important;
     color: #ffffff !important;
+    border: 2px solid #00B7B5 !important;
 }
 
 .icset-venue-card {
-    background-color: #0f172a !important;
-    background-image: linear-gradient(135deg, #0f172a 0%, #064e3b 100%) !important;
+    background-color: #005461 !important;
     color: #ffffff !important;
+    border: 1px solid rgba(0, 183, 181, 0.35);
 }
 
 .icset-cfp-card {
-    background-color: #1e293b !important;
-    background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+    background-color: #005461 !important;
     color: #ffffff !important;
+    border: 1px solid rgba(0, 183, 181, 0.35);
 }

@@ -22,20 +22,68 @@
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                     },
                     colors: {
+                        petrol: {
+                            DEFAULT: '#005461',
+                            950: '#002228',
+                            900: '#002d35',
+                            800: '#003c45',
+                            700: '#004853',
+                            600: '#005461',
+                            500: '#018790',
+                        },
+                        teal: {
+                            DEFAULT: '#018790',
+                            700: '#005461',
+                            600: '#016f76',
+                            500: '#018790',
+                            400: '#029fa9',
+                            300: '#1fc2cd',
+                        },
+                        mint: {
+                            DEFAULT: '#00B7B5',
+                            600: '#018790',
+                            500: '#00B7B5',
+                            400: '#22d3d1',
+                            300: '#5eead4',
+                            200: '#99f6e4',
+                            100: '#ccfbf1',
+                            50: '#f0fdfa',
+                        },
+                        offwhite: '#F4F4F4',
+                        // Dynamic mapping for backward-compatible classes
+                        emerald: {
+                            50: '#F4F4F4',
+                            100: '#e0f7f6',
+                            200: '#b2ebe9',
+                            300: '#80dedc',
+                            400: '#00B7B5',     // Mint Cyan
+                            500: '#018790',     // Classic Teal
+                            600: '#005461',     // Deep Petrol Teal
+                            700: '#004853',
+                            800: '#003c45',
+                            900: '#002d35',
+                        },
                         brand: {
-                            50: '#ecfdf5',
-                            100: '#d1fae5',
-                            500: '#10b981',
-                            600: '#059669',
-                            700: '#047857',
-                            800: '#065f46',
-                            900: '#064e3b',
-                            950: '#022c22',
+                            50: '#F4F4F4',
+                            100: '#e0f7f6',
+                            200: '#b2ebe9',
+                            300: '#80dedc',
+                            400: '#00B7B5',
+                            500: '#018790',
+                            600: '#005461',
+                            700: '#004853',
+                            800: '#003c45',
+                            900: '#002d35',
                         },
                         accent: {
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#00B7B5',     // Mint Accent
+                            500: '#018790',     // Teal
+                            600: '#005461',     // Petrol
+                            700: '#004853',
                         }
                     }
                 }
@@ -50,63 +98,61 @@
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
+        /* Crisp solid background with subtle architectural grid (NO gradients) */
         .hero-pattern {
-            background-color: #042f2e;
-            background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px), radial-gradient(rgba(14, 165, 233, 0.12) 1px, #042f2e 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
+            background-color: #005461;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 36px 36px;
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
         }
         .dark-glass {
-            background: rgba(6, 78, 59, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #005461;
+            border: 1px solid rgba(0, 183, 181, 0.3);
         }
-        /* High-contrast solid container styling for maximum clarity */
+        /* Solid Flat Component Styling (No AI gradients) */
         .icset-factsheet-card {
-            background-color: #0f172a !important;
-            background-image: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #064e3b 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 1px solid rgba(0, 183, 181, 0.35) !important;
         }
         .icset-keynote-card {
-            background-color: #022c22 !important;
-            background-image: linear-gradient(90deg, #0f172a 0%, #022c22 50%, #0f172a 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 1px solid rgba(0, 183, 181, 0.35) !important;
         }
         .icset-speaker-avatar {
-            background-color: #047857 !important;
-            background-image: linear-gradient(135deg, #059669 0%, #047857 50%, #064e3b 100%) !important;
+            background-color: #018790 !important;
             color: #ffffff !important;
             font-weight: 800 !important;
         }
         .icset-proceedings-card {
-            background-color: #022c22 !important;
-            background-image: linear-gradient(135deg, #022c22 0%, #0f172a 50%, #0f172a 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 1px solid rgba(0, 183, 181, 0.35) !important;
         }
         .icset-featured-pricing-card {
-            background-color: #0f172a !important;
-            background-image: linear-gradient(180deg, #0f172a 0%, #064e3b 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 2px solid #00B7B5 !important;
         }
         .icset-venue-card {
-            background-color: #0f172a !important;
-            background-image: linear-gradient(135deg, #0f172a 0%, #064e3b 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 1px solid rgba(0, 183, 181, 0.35) !important;
         }
         .icset-cfp-card {
-            background-color: #1e293b !important;
-            background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%) !important;
+            background-color: #005461 !important;
             color: #ffffff !important;
+            border: 1px solid rgba(0, 183, 181, 0.35) !important;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-[#F4F4F4] text-slate-800 antialiased selection:bg-[#00B7B5] selection:text-[#005461]">
 
     @include('partials.navbar')
 

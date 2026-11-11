@@ -9,9 +9,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        petrol: {
+                            DEFAULT: '#005461',
+                            950: '#002228',
+                            900: '#002d35',
+                            800: '#003c45',
+                            700: '#004853',
+                            600: '#005461',
+                            500: '#018790',
+                        },
+                        teal: {
+                            DEFAULT: '#018790',
+                            600: '#016f76',
+                            500: '#018790',
+                            400: '#029fa9',
+                        },
+                        mint: {
+                            DEFAULT: '#00B7B5',
+                            500: '#00B7B5',
+                            400: '#22d3d1',
+                        },
+                        emerald: {
+                            50: '#F4F4F4',
+                            100: '#e0f7f6',
+                            200: '#b2ebe9',
+                            300: '#80dedc',
+                            400: '#00B7B5',
+                            500: '#018790',
+                            600: '#005461',
+                            700: '#004853',
+                            800: '#003c45',
+                            900: '#002d35',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        [x-cloak] { display: none !important; }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 antialiased">
@@ -21,14 +68,14 @@
             <div>
                 <!-- Brand -->
                 <div class="p-6 border-b border-slate-800 flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-500 text-slate-950 font-extrabold flex items-center justify-center text-base shadow">
+                    <div class="w-9 h-9 rounded-xl bg-[#00B7B5] text-[#005461] font-black flex items-center justify-center text-base shadow-sm">
                         I
                     </div>
                     <div>
                         <div class="flex items-center gap-1.5">
                             <span class="text-base font-extrabold text-white">ICSET 2027</span>
                         </div>
-                        <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-widest">Admin Control</span>
+                        <span class="text-[10px] font-bold text-[#00B7B5] uppercase tracking-widest">Admin Control</span>
                     </div>
                 </div>
 
@@ -77,6 +124,11 @@
                     <a href="{{ route('admin.fees') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.fees*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
                         <i data-lucide="tag" class="w-4 h-4"></i>
                         <span>Registration Fees</span>
+                    </a>
+
+                    <a href="{{ route('admin.committees') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.committees*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">
+                        <i data-lucide="users-2" class="w-4 h-4"></i>
+                        <span>Organizing Committee</span>
                     </a>
 
                     <a href="{{ route('admin.settings') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-colors {{ request()->routeIs('admin.settings*') ? 'bg-emerald-600 text-white font-bold' : 'hover:bg-slate-800 text-slate-300' }}">

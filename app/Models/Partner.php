@@ -11,6 +11,7 @@ class Partner extends Model
         'category',
         'subtitle',
         'logo_abbr',
+        'logo_image',
         'color',
         'order',
         'is_active',

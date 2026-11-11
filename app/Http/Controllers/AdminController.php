@@ -149,8 +149,13 @@ class AdminController extends Controller
             'flag' => 'nullable|string|max:10',
             'topic' => 'nullable|string|max:255',
             'status' => 'required|string|max:50',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
             'order' => 'required|integer',
         ]);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('speakers', 'public');
+        }
 
         Speaker::create($validated);
         return back()->with('success', 'Speaker added successfully.');
@@ -168,10 +173,18 @@ class AdminController extends Controller
             'flag' => 'nullable|string|max:10',
             'topic' => 'nullable|string|max:255',
             'status' => 'required|string|max:50',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
             'order' => 'required|integer',
         ]);
 
         $speaker = Speaker::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('speakers', 'public');
+        } elseif ($request->boolean('remove_image')) {
+            $validated['image'] = null;
+        }
+
         $speaker->update($validated);
         return back()->with('success', 'Speaker updated successfully.');
     }
@@ -203,6 +216,20 @@ class AdminController extends Controller
         return back()->with('success', 'Track created successfully.');
     }
 
+    public function updateTrack(Request $request, $id)
+    {
+        $track = Track::findOrFail($id);
+        $validated = $request->validate([
+            'code' => 'required|string|max:50|unique:tracks,code,' . $track->id,
+            'title' => 'required|string|max:255',
+            'icon' => 'required|string|max:50',
+            'order' => 'required|integer',
+        ]);
+
+        $track->update($validated);
+        return back()->with('success', 'Track updated successfully.');
+    }
+
     public function deleteTrack($id)
     {
         $track = Track::findOrFail($id);
@@ -231,6 +258,21 @@ class AdminController extends Controller
         return back()->with('success', 'Timeline milestone added.');
     }
 
+    public function updateTimeline(Request $request, $id)
+    {
+        $timeline = Timeline::findOrFail($id);
+        $validated = $request->validate([
+            'date_string' => 'required|string|max:100',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'badge' => 'required|string|max:50',
+            'order' => 'required|integer',
+        ]);
+
+        $timeline->update($validated);
+        return back()->with('success', 'Timeline milestone updated successfully.');
+    }
+
     public function deleteTimeline($id)
     {
         $timeline = Timeline::findOrFail($id);
@@ -247,13 +289,24 @@ class AdminController extends Controller
 
     public function updateSettings(Request $request)
     {
-        $data = $request->except(['_token']);
+        $request->validate([
+            'poster_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240', // max 10MB
+        ]);
+
+        if ($request->hasFile('poster_image')) {
+            $path = $request->file('poster_image')->store('posters', 'public');
+            ConferenceSetting::updateOrCreate(['key' => 'poster_image'], ['value' => $path]);
+        } elseif ($request->boolean('remove_poster')) {
+            ConferenceSetting::updateOrCreate(['key' => 'poster_image'], ['value' => null]);
+        }
+
+        $data = $request->except(['_token', 'poster_image', 'remove_poster']);
 
         foreach ($data as $key => $value) {
             ConferenceSetting::updateOrCreate(['key' => $key], ['value' => $value]);
         }
 
-        return back()->with('success', 'Conference settings updated successfully.');
+        return back()->with('success', 'Conference settings and official poster updated successfully.');
     }
 
     // ==================== PROGRAMME SESSIONS ====================
@@ -363,8 +416,13 @@ class AdminController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'logo_abbr' => 'nullable|string|max:20',
             'color' => 'required|string|max:30',
+            'logo_image' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:5120',
             'order' => 'required|integer',
         ]);
+
+        if ($request->hasFile('logo_image')) {
+            $validated['logo_image'] = $request->file('logo_image')->store('partners', 'public');
+        }
 
         Partner::create($validated);
         return back()->with('success', 'Partner/Sponsor added successfully.');
@@ -378,10 +436,18 @@ class AdminController extends Controller
             'subtitle' => 'nullable|string|max:255',
             'logo_abbr' => 'nullable|string|max:20',
             'color' => 'required|string|max:30',
+            'logo_image' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:5120',
             'order' => 'required|integer',
         ]);
 
         $partner = Partner::findOrFail($id);
+
+        if ($request->hasFile('logo_image')) {
+            $validated['logo_image'] = $request->file('logo_image')->store('partners', 'public');
+        } elseif ($request->boolean('remove_logo')) {
+            $validated['logo_image'] = null;
+        }
+
         $partner->update($validated);
         return back()->with('success', 'Partner/Sponsor updated successfully.');
     }
@@ -424,5 +490,61 @@ class AdminController extends Controller
         ]);
 
         return back()->with('success', 'Registration fee tier updated successfully.');
+    }
+
+    // ==================== ORGANIZING COMMITTEES ====================
+    public function committees()
+    {
+        $committees = Committee::orderBy('order')->get();
+        return view('admin.committees.index', compact('committees'));
+    }
+
+    public function storeCommittee(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'division' => 'required|string|in:patron,leadership,academic_head,member',
+            'affiliation' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'order' => 'required|integer',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('committees', 'public');
+        }
+
+        Committee::create($validated);
+        return back()->with('success', 'Committee member added successfully.');
+    }
+
+    public function updateCommittee(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+            'division' => 'required|string|in:patron,leadership,academic_head,member',
+            'affiliation' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:5120',
+            'order' => 'required|integer',
+        ]);
+
+        $committee = Committee::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('committees', 'public');
+        } elseif ($request->boolean('remove_image')) {
+            $validated['image'] = null;
+        }
+
+        $committee->update($validated);
+        return back()->with('success', 'Committee member updated successfully.');
+    }
+
+    public function deleteCommittee($id)
+    {
+        $committee = Committee::findOrFail($id);
+        $committee->delete();
+        return back()->with('success', 'Committee member removed.');
     }
 }

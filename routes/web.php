@@ -50,11 +50,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Tracks Management
     Route::get('/tracks', [AdminController::class, 'tracks'])->name('tracks');
     Route::post('/tracks', [AdminController::class, 'storeTrack'])->name('tracks.store');
+    Route::put('/tracks/{id}', [AdminController::class, 'updateTrack'])->name('tracks.update');
     Route::delete('/tracks/{id}', [AdminController::class, 'deleteTrack'])->name('tracks.delete');
 
     // Timelines Management
     Route::get('/timelines', [AdminController::class, 'timelines'])->name('timelines');
     Route::post('/timelines', [AdminController::class, 'storeTimeline'])->name('timelines.store');
+    Route::put('/timelines/{id}', [AdminController::class, 'updateTimeline'])->name('timelines.update');
     Route::delete('/timelines/{id}', [AdminController::class, 'deleteTimeline'])->name('timelines.delete');
 
     // Programme Sessions
@@ -78,6 +80,12 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Registration Fees Management
     Route::get('/fees', [AdminController::class, 'fees'])->name('fees');
     Route::put('/fees/{id}', [AdminController::class, 'updateFee'])->name('fees.update');
+
+    // Organizing Committees Management
+    Route::get('/committees', [AdminController::class, 'committees'])->name('committees');
+    Route::post('/committees', [AdminController::class, 'storeCommittee'])->name('committees.store');
+    Route::put('/committees/{id}', [AdminController::class, 'updateCommittee'])->name('committees.update');
+    Route::delete('/committees/{id}', [AdminController::class, 'deleteCommittee'])->name('committees.delete');
 
     // Conference Settings
     Route::get('/settings', [AdminController::class, 'settings'])->name('settings');

@@ -348,6 +348,33 @@ class DynamicSectionsSeeder extends Seeder
                 'order' => 12,
                 'is_active' => true,
             ],
+            [
+                'name' => 'Badan Riset dan Inovasi Nasional (BRIN)',
+                'category' => 'sponsor',
+                'subtitle' => 'National Research Partner',
+                'logo_abbr' => 'BRIN',
+                'color' => 'rose',
+                'order' => 13,
+                'is_active' => true,
+            ],
+            [
+                'name' => 'Bursa Efek Indonesia (BEI / IDX)',
+                'category' => 'sponsor',
+                'subtitle' => 'Capital Market Strategic Partner',
+                'logo_abbr' => 'BEI',
+                'color' => 'slate',
+                'order' => 14,
+                'is_active' => true,
+            ],
+            [
+                'name' => 'Ikatan Akuntan Indonesia (IAI)',
+                'category' => 'sponsor',
+                'subtitle' => 'Professional Accounting Partner',
+                'logo_abbr' => 'IAI',
+                'color' => 'indigo',
+                'order' => 15,
+                'is_active' => true,
+            ],
         ];
 
         foreach ($partners as $partner) {

@@ -1,10 +1,10 @@
-<section id="timeline" class="py-20 lg:py-28 bg-slate-50 relative border-t border-slate-200">
+<section id="timeline" class="py-20 lg:py-28 bg-[#F4F4F4] relative border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200">
-                <i data-lucide="calendar-clock" class="w-4 h-4"></i>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-white text-[#005461] text-xs font-bold uppercase tracking-wider mb-4 border border-[#018790]/30 shadow-sm">
+                <i data-lucide="calendar-clock" class="w-4 h-4 text-[#018790]"></i>
                 <span>{{ __('Important Dates') }}</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -24,19 +24,19 @@
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-xs font-bold px-3 py-1 rounded-full 
-                                @if($item->badge == 'Kickoff') bg-emerald-100 text-emerald-800
-                                @elseif($item->badge == 'Deadline') bg-rose-100 text-rose-800
-                                @elseif($item->badge == 'Main Event') bg-amber-100 text-amber-800
+                                @if($item->badge == 'Kickoff') bg-[#00B7B5] text-[#005461] border border-[#00B7B5] shadow-sm
+                                @elseif($item->badge == 'Deadline') bg-rose-50 text-rose-800 border border-rose-200 font-bold
+                                @elseif($item->badge == 'Main Event') bg-[#005461] text-[#00B7B5] font-bold border border-[#005461] shadow-sm
                                 @else bg-slate-100 text-slate-700
                                 @endif">
                                 {{ __($item->badge) }}
                             </span>
-                            <div class="w-8 h-8 rounded-lg bg-slate-50 text-slate-400 flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-lg bg-[#F4F4F4] text-[#018790] flex items-center justify-center">
                                 <i data-lucide="calendar" class="w-4 h-4"></i>
                             </div>
                         </div>
 
-                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-1">
+                        <span class="text-xs font-black uppercase tracking-wider text-[#018790] block mb-1">
                             {{ __($item->date_string) }}
                         </span>
 
@@ -51,12 +51,12 @@
 
                     <div class="mt-6 pt-3 border-t border-slate-100 text-right">
                         @if($item->badge == 'Kickoff')
-                            <span class="text-[11px] font-bold text-emerald-600 flex items-center justify-end gap-1">
-                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span class="text-[11px] font-bold text-[#018790] flex items-center justify-end gap-1">
+                                <span class="w-2 h-2 rounded-full bg-[#00B7B5]"></span>
                                 {{ __('Target Launching') }}
                             </span>
                         @elseif($item->badge == 'Main Event')
-                            <span class="text-[11px] font-bold text-amber-600">
+                            <span class="text-[11px] font-bold text-[#005461]">
                                 {{ __('2 Days Conference') }}
                             </span>
                         @else

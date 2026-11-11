@@ -9,6 +9,7 @@ class Committee extends Model
     protected $fillable = [
         'name',
         'role',
+        'image',
         'division',
         'affiliation',
         'order',

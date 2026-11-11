@@ -4,7 +4,14 @@
 @section('header_title', 'Timeline & Deadlines Management')
 
 @section('content')
-<div class="space-y-6">
+<div class="space-y-6" x-data="{ 
+    editOpen: false, 
+    editData: {}, 
+    openEditModal(tm) { 
+        this.editData = Object.assign({}, tm); 
+        this.editOpen = true; 
+    } 
+}">
 
     <!-- Add Milestone Form -->
     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
@@ -93,18 +100,95 @@
                             </span>
                         </td>
                         <td class="px-5 py-3.5 text-right whitespace-nowrap">
-                            <form action="{{ route('admin.timelines.delete', $tm->id) }}" method="POST" onsubmit="return confirm('Delete this milestone?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50">
-                                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            <div class="flex items-center justify-end gap-1.5">
+                                <button type="button" 
+                                        @click="openEditModal({{ json_encode($tm) }})" 
+                                        class="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 transition-colors" 
+                                        title="Edit Milestone">
+                                    <i data-lucide="edit-3" class="w-4 h-4"></i>
                                 </button>
-                            </form>
+                                <form action="{{ route('admin.timelines.delete', $tm->id) }}" method="POST" onsubmit="return confirm('Delete this milestone?');" class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors" title="Delete">
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <!-- Edit Timeline Modal -->
+    <div x-show="editOpen" 
+         x-cloak 
+         class="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4"
+         @keydown.escape.window="editOpen = false">
+        
+        <div class="bg-white w-full max-w-xl rounded-2xl shadow-2xl border border-slate-200 overflow-hidden" 
+             @click.away="editOpen = false">
+            
+            <div class="p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="edit-3" class="w-4 h-4 text-emerald-600"></i>
+                    <h3 class="text-sm font-bold text-slate-900">Edit Timeline Milestone</h3>
+                </div>
+                <button type="button" @click="editOpen = false" class="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-200/60 transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <form :action="'{{ url('/admin/timelines') }}/' + editData.id" method="POST" class="p-6 space-y-4 text-xs">
+                @csrf
+                @method('PUT')
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Date String</label>
+                        <input type="text" name="date_string" x-model="editData.date_string" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Badge Tag</label>
+                        <select name="badge" x-model="editData.badge" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="Kickoff">Kickoff</option>
+                            <option value="Deadline">Deadline</option>
+                            <option value="Review">Review</option>
+                            <option value="Payment">Payment</option>
+                            <option value="Final Prep">Final Prep</option>
+                            <option value="Main Event">Main Event</option>
+                        </select>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Milestone Title</label>
+                        <input type="text" name="title" x-model="editData.title" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label class="block font-bold text-slate-700 mb-1">Description</label>
+                        <input type="text" name="description" x-model="editData.description" class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Display Order</label>
+                        <input type="number" name="order" x-model="editData.order" required class="w-full px-3 py-2 rounded-xl border border-slate-200">
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-end gap-2">
+                    <button type="button" @click="editOpen = false" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold transition-colors">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 

@@ -5,12 +5,12 @@
         <div id="floating-lang-menu" class="hidden absolute bottom-full left-0 mb-3 w-56 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200/90 p-2 transition-all duration-200 origin-bottom-left">
             <div class="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">{{ __('Language') }}</span>
-                <span class="text-[10px] font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">5 Languages</span>
+                <span class="text-[10px] font-semibold bg-[#F4F4F4] text-[#005461] px-2 py-0.5 rounded-full border border-slate-200">5 Languages</span>
             </div>
 
             <div class="py-1 space-y-0.5">
                 <!-- English -->
-                <a href="{{ route('lang.switch', 'en') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'en' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-slate-100' }}">
+                <a href="{{ route('lang.switch', 'en') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'en' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇬🇧</span>
                         <span>English</span>
@@ -21,7 +21,7 @@
                 </a>
 
                 <!-- Indonesian -->
-                <a href="{{ route('lang.switch', 'id') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'id' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-slate-100' }}">
+                <a href="{{ route('lang.switch', 'id') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'id' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇮🇩</span>
                         <span>Bahasa Indonesia</span>
@@ -32,7 +32,7 @@
                 </a>
 
                 <!-- Chinese -->
-                <a href="{{ route('lang.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'zh' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-slate-100' }}">
+                <a href="{{ route('lang.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'zh' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇨🇳</span>
                         <span>简体中文</span>
@@ -43,7 +43,7 @@
                 </a>
 
                 <!-- Arabic -->
-                <a href="{{ route('lang.switch', 'ar') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ar' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-slate-100' }}">
+                <a href="{{ route('lang.switch', 'ar') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ar' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇸🇦</span>
                         <span class="font-bold">العربية</span>
@@ -54,7 +54,7 @@
                 </a>
 
                 <!-- Japanese -->
-                <a href="{{ route('lang.switch', 'ja') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ja' ? 'bg-emerald-600 text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-slate-100' }}">
+                <a href="{{ route('lang.switch', 'ja') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ja' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇯🇵</span>
                         <span>日本語</span>
@@ -66,9 +66,9 @@
             </div>
         </div>
 
-        <!-- Main Floating Trigger Button -->
-        <button id="floating-lang-btn" type="button" aria-label="Change Language" class="group flex items-center gap-2.5 px-4 py-2.5 bg-slate-900/90 hover:bg-slate-900 text-white rounded-full shadow-2xl backdrop-blur-md border border-slate-700/60 hover:border-emerald-500/60 transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none">
-            <span class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+        <!-- Main Floating Trigger Button (Solid Flat) -->
+        <button id="floating-lang-btn" type="button" aria-label="Change Language" class="group flex items-center gap-2.5 px-4 py-2.5 bg-[#002d35] hover:bg-[#002228] text-white rounded-full shadow-lg border border-[#018790] transition-all duration-200 focus:outline-none">
+            <span class="w-7 h-7 rounded-full bg-[#018790]/50 text-[#00B7B5] flex items-center justify-center group-hover:bg-[#00B7B5] group-hover:text-[#005461] transition-colors">
                 <i data-lucide="globe" class="w-4 h-4"></i>
             </span>
 
@@ -86,7 +86,7 @@
                 @endif
             </span>
 
-            <i id="floating-lang-chevron" data-lucide="chevron-up" class="w-4 h-4 text-slate-400 group-hover:text-white transition-transform duration-200"></i>
+            <i id="floating-lang-chevron" data-lucide="chevron-up" class="w-4 h-4 text-slate-300 group-hover:text-white transition-transform duration-200"></i>
         </button>
     </div>
 </div>
