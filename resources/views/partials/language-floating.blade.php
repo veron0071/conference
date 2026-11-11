@@ -1,16 +1,16 @@
-<!-- Floating Language Selector (Pojok Kiri Bawah) -->
+﻿<!-- Floating Language Selector (Pojok Kiri Bawah) -->
 <div id="floating-lang-container" class="fixed bottom-6 left-6 z-50 font-sans">
     <div class="relative">
         <!-- Upward Dropdown Menu -->
         <div id="floating-lang-menu" class="hidden absolute bottom-full left-0 mb-3 w-56 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200/90 p-2 transition-all duration-200 origin-bottom-left">
             <div class="px-3 py-2 border-b border-slate-100 flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500">{{ __('Language') }}</span>
-                <span class="text-[10px] font-semibold bg-[#F4F4F4] text-[#005461] px-2 py-0.5 rounded-full border border-slate-200">5 Languages</span>
+                <span class="text-[10px] font-semibold bg-[#FFF9F2] text-[#800020] px-2 py-0.5 rounded-full border border-slate-200">5 Languages</span>
             </div>
 
             <div class="py-1 space-y-0.5">
                 <!-- English -->
-                <a href="{{ route('lang.switch', 'en') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'en' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
+                <a href="{{ route('lang.switch', 'en') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'en' ? 'bg-[#800020] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#FFF9F2]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇬🇧</span>
                         <span>English</span>
@@ -21,7 +21,7 @@
                 </a>
 
                 <!-- Indonesian -->
-                <a href="{{ route('lang.switch', 'id') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'id' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
+                <a href="{{ route('lang.switch', 'id') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'id' ? 'bg-[#800020] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#FFF9F2]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇮🇩</span>
                         <span>Bahasa Indonesia</span>
@@ -32,7 +32,7 @@
                 </a>
 
                 <!-- Chinese -->
-                <a href="{{ route('lang.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'zh' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
+                <a href="{{ route('lang.switch', 'zh') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'zh' ? 'bg-[#800020] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#FFF9F2]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇨🇳</span>
                         <span>简体中文</span>
@@ -43,7 +43,7 @@
                 </a>
 
                 <!-- Arabic -->
-                <a href="{{ route('lang.switch', 'ar') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ar' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
+                <a href="{{ route('lang.switch', 'ar') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ar' ? 'bg-[#800020] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#FFF9F2]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇸🇦</span>
                         <span class="font-bold">العربية</span>
@@ -54,7 +54,7 @@
                 </a>
 
                 <!-- Japanese -->
-                <a href="{{ route('lang.switch', 'ja') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ja' ? 'bg-[#005461] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#F4F4F4]' }}">
+                <a href="{{ route('lang.switch', 'ja') }}" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ app()->getLocale() == 'ja' ? 'bg-[#800020] text-white font-bold shadow-sm' : 'text-slate-700 hover:bg-[#FFF9F2]' }}">
                     <span class="flex items-center gap-2.5">
                         <span class="text-base">🇯🇵</span>
                         <span>日本語</span>
@@ -67,8 +67,8 @@
         </div>
 
         <!-- Main Floating Trigger Button (Solid Flat) -->
-        <button id="floating-lang-btn" type="button" aria-label="Change Language" class="group flex items-center gap-2.5 px-4 py-2.5 bg-[#002d35] hover:bg-[#002228] text-white rounded-full shadow-lg border border-[#018790] transition-all duration-200 focus:outline-none">
-            <span class="w-7 h-7 rounded-full bg-[#018790]/50 text-[#00B7B5] flex items-center justify-center group-hover:bg-[#00B7B5] group-hover:text-[#005461] transition-colors">
+        <button id="floating-lang-btn" type="button" aria-label="Change Language" class="group flex items-center gap-2.5 px-4 py-2.5 bg-[#4d0013] hover:bg-[#38000d] text-white rounded-full shadow-lg border border-[#5C0017] transition-all duration-200 focus:outline-none">
+            <span class="w-7 h-7 rounded-full bg-[#5C0017]/50 text-[#D45060] flex items-center justify-center group-hover:bg-[#D45060] group-hover:text-[#800020] transition-colors">
                 <i data-lucide="globe" class="w-4 h-4"></i>
             </span>
 

@@ -1,10 +1,10 @@
-<section id="programme" class="py-20 lg:py-28 bg-white relative border-t border-slate-200">
+﻿<section id="programme" class="py-20 lg:py-28 bg-white relative border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Section Header -->
         <div class="text-center max-w-3xl mx-auto mb-14">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#F4F4F4] text-[#005461] text-xs font-bold uppercase tracking-wider mb-4 border border-[#018790]/30 shadow-sm">
-                <i data-lucide="clock" class="w-4 h-4 text-[#018790]"></i>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#FFF9F2] text-[#800020] text-xs font-bold uppercase tracking-wider mb-4 border border-[#5C0017]/30 shadow-sm">
+                <i data-lucide="clock" class="w-4 h-4 text-[#5C0017]"></i>
                 <span>{{ __('Conference Programme') }}</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -15,15 +15,15 @@
             </p>
 
             <!-- Day 1 & Day 2 Interactive Switcher -->
-            <div class="mt-8 inline-flex p-1.5 bg-[#F4F4F4] rounded-2xl border border-slate-200">
+            <div class="mt-8 inline-flex p-1.5 bg-[#FFF9F2] rounded-2xl border border-slate-200">
                 <button type="button" id="tab-btn-day1" onclick="switchDayTab(1)"
-                    class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#005461] border border-slate-200/80">
-                    <span class="w-2.5 h-2.5 rounded-full bg-[#00B7B5]"></span>
+                    class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#800020] border border-slate-200/80">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#D45060]"></span>
                     <span>{{ __('Day 1: Tuesday, 03 August 2027') }}</span>
-                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-[#F4F4F4] text-[#005461] hidden sm:inline">{{ __('Plenary Hall') }}</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-[#FFF9F2] text-[#800020] hidden sm:inline">{{ __('Plenary Hall') }}</span>
                 </button>
                 <button type="button" id="tab-btn-day2" onclick="switchDayTab(2)"
-                    class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#005461]">
+                    class="px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#800020]">
                     <span class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
                     <span>{{ __('Day 2: Wednesday, 04 August 2027') }}</span>
                     <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-200 text-slate-700 hidden sm:inline">{{ __('Breakout Tracks') }}</span>
@@ -42,24 +42,24 @@
 
                 <div class="p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-200 hover:shadow-md
                     @if($isKeynote)
-                        bg-[#005461] text-white border-[#018790] shadow-md
+                        bg-[#800020] text-white border-[#5C0017] shadow-md
                     @elseif($isOpening)
-                        bg-white border-[#018790]/40 text-slate-900 shadow-sm
+                        bg-white border-[#5C0017]/40 text-slate-900 shadow-sm
                     @elseif($isLunch)
-                        bg-[#F4F4F4] border-slate-200 text-slate-900
+                        bg-[#FFF9F2] border-slate-200 text-slate-900
                     @else
-                        bg-[#F4F4F4] border-slate-200 text-slate-900
+                        bg-[#FFF9F2] border-slate-200 text-slate-900
                     @endif">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center font-mono font-extrabold text-xs flex-shrink-0 shadow-sm
                             @if($isKeynote)
-                                bg-[#00B7B5] text-[#005461] font-black
+                                bg-[#D45060] text-white font-black
                             @elseif($isOpening)
-                                bg-[#005461] text-white
+                                bg-[#800020] text-white
                             @elseif($isLunch)
                                 bg-slate-200 text-slate-700
                             @else
-                                bg-white text-[#005461] border border-slate-200
+                                bg-white text-[#800020] border border-slate-200
                             @endif">
                             {{ $item->time_start }}
                         </div>
@@ -67,9 +67,9 @@
                             <div class="flex items-center gap-2 mb-1">
                                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase
                                     @if($isKeynote)
-                                        bg-[#018790] text-[#00B7B5] border border-[#00B7B5]/40
+                                        bg-[#5C0017] text-[#D45060] border border-[#D45060]/40
                                     @elseif($isOpening)
-                                        bg-[#F4F4F4] text-[#005461] border border-[#018790]/30
+                                        bg-[#FFF9F2] text-[#800020] border border-[#5C0017]/30
                                     @elseif($isLunch)
                                         bg-slate-200 text-slate-700
                                     @else
@@ -94,7 +94,7 @@
                     @if($item->location)
                     <span class="px-3 py-1 rounded-lg text-xs font-bold self-end sm:self-center flex-shrink-0
                         @if($isKeynote)
-                            bg-[#003c45] text-[#00B7B5] border border-white/10
+                            bg-[#5C0017] text-[#D45060] border border-white/10
                         @else
                             bg-white text-slate-700 border border-slate-200
                         @endif">
@@ -103,7 +103,7 @@
                     @endif
                 </div>
             @empty
-                <div class="p-8 text-center bg-[#F4F4F4] rounded-2xl border border-slate-200 text-slate-500">
+                <div class="p-8 text-center bg-[#FFF9F2] rounded-2xl border border-slate-200 text-slate-500">
                     {{ __('No sessions scheduled yet for Day 1.') }}
                 </div>
             @endforelse
@@ -120,24 +120,24 @@
 
                 <div class="p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-200 hover:shadow-md
                     @if($isKeynote)
-                        bg-[#005461] text-white border-[#018790] shadow-md
+                        bg-[#800020] text-white border-[#5C0017] shadow-md
                     @elseif($isParallel)
-                        bg-white border-[#018790]/40 text-slate-900 shadow-sm
+                        bg-white border-[#5C0017]/40 text-slate-900 shadow-sm
                     @elseif($isLunch)
-                        bg-[#F4F4F4] border-slate-200 text-slate-900
+                        bg-[#FFF9F2] border-slate-200 text-slate-900
                     @else
-                        bg-[#F4F4F4] border-slate-200 text-slate-900
+                        bg-[#FFF9F2] border-slate-200 text-slate-900
                     @endif">
                     <div class="flex items-start gap-4">
                         <div class="w-12 h-12 rounded-xl flex items-center justify-center font-mono font-extrabold text-xs flex-shrink-0 shadow-sm
                             @if($isKeynote)
-                                bg-[#00B7B5] text-[#005461] font-black
+                                bg-[#D45060] text-white font-black
                             @elseif($isParallel)
-                                bg-[#005461] text-white
+                                bg-[#800020] text-white
                             @elseif($isLunch)
                                 bg-slate-200 text-slate-700
                             @else
-                                bg-white text-[#005461] border border-slate-200
+                                bg-white text-[#800020] border border-slate-200
                             @endif">
                             {{ $item->time_start }}
                         </div>
@@ -145,9 +145,9 @@
                             <div class="flex items-center gap-2 mb-1">
                                 <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase
                                     @if($isKeynote)
-                                        bg-[#018790] text-[#00B7B5] border border-[#00B7B5]/40
+                                        bg-[#5C0017] text-[#D45060] border border-[#D45060]/40
                                     @elseif($isParallel)
-                                        bg-[#F4F4F4] text-[#005461] border border-[#018790]/30
+                                        bg-[#FFF9F2] text-[#800020] border border-[#5C0017]/30
                                     @elseif($isLunch)
                                         bg-slate-200 text-slate-700
                                     @else
@@ -172,7 +172,7 @@
                     @if($item->location)
                     <span class="px-3 py-1 rounded-lg text-xs font-bold self-end sm:self-center flex-shrink-0
                         @if($isKeynote)
-                            bg-[#003c45] text-[#00B7B5] border border-white/10
+                            bg-[#5C0017] text-[#D45060] border border-white/10
                         @else
                             bg-white text-slate-700 border border-slate-200
                         @endif">
@@ -181,24 +181,24 @@
                     @endif
                 </div>
             @empty
-                <div class="p-8 text-center bg-[#F4F4F4] rounded-2xl border border-slate-200 text-slate-500">
+                <div class="p-8 text-center bg-[#FFF9F2] rounded-2xl border border-slate-200 text-slate-500">
                     {{ __('No sessions scheduled yet for Day 2.') }}
                 </div>
             @endforelse
         </div>
 
         <!-- Venue Summary Banner -->
-        <div class="mt-12 p-6 rounded-2xl bg-[#F4F4F4] border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="mt-12 p-6 rounded-2xl bg-[#FFF9F2] border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-white text-[#005461] border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
-                    <i data-lucide="map-pin" class="w-5 h-5 text-[#018790]"></i>
+                <div class="w-10 h-10 rounded-xl bg-white text-[#800020] border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-sm">
+                    <i data-lucide="map-pin" class="w-5 h-5 text-[#5C0017]"></i>
                 </div>
                 <div>
                     <h4 class="text-sm font-extrabold text-slate-900">{{ __('Conference Venues') }}</h4>
                     <p class="text-xs text-slate-600 mt-0.5">{{ __('Day 1: Gedung CBT Kampus 2 UNWAHAS | Day 2: Gedung Fakultas Kedokteran UNWAHAS') }}</p>
                 </div>
             </div>
-            <a href="#venue" class="px-4 py-2 rounded-xl text-xs font-bold text-[#005461] bg-white border border-slate-200 hover:border-[#018790] hover:text-[#018790] transition-colors shadow-sm flex items-center gap-1.5 flex-shrink-0">
+            <a href="#venue" class="px-4 py-2 rounded-xl text-xs font-bold text-[#800020] bg-white border border-slate-200 hover:border-[#5C0017] hover:text-[#5C0017] transition-colors shadow-sm flex items-center gap-1.5 flex-shrink-0">
                 <span>{{ __('View Venue Details') }}</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </a>
@@ -217,13 +217,13 @@ function switchDayTab(day) {
     if (day === 1) {
         day1Div.classList.remove('hidden');
         day2Div.classList.add('hidden');
-        btn1.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#005461] border border-slate-200/80";
-        btn2.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#005461]";
+        btn1.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#800020] border border-slate-200/80";
+        btn2.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#800020]";
     } else {
         day1Div.classList.add('hidden');
         day2Div.classList.remove('hidden');
-        btn2.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#005461] border border-slate-200/80";
-        btn1.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#005461]";
+        btn2.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 shadow-sm bg-white text-[#800020] border border-slate-200/80";
+        btn1.className = "px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 flex items-center gap-2 text-slate-600 hover:text-[#800020]";
     }
 }
 </script>

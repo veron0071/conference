@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,36 +18,36 @@
                     },
                     colors: {
                         petrol: {
-                            DEFAULT: '#005461',
-                            950: '#002228',
-                            900: '#002d35',
-                            800: '#003c45',
-                            700: '#004853',
-                            600: '#005461',
-                            500: '#018790',
+                            DEFAULT: '#800020',
+                            950: '#38000d',
+                            900: '#4d0013',
+                            800: '#5C0017',
+                            700: '#5C0017',
+                            600: '#800020',
+                            500: '#5C0017',
                         },
                         teal: {
-                            DEFAULT: '#018790',
+                            DEFAULT: '#5C0017',
                             600: '#016f76',
-                            500: '#018790',
+                            500: '#5C0017',
                             400: '#029fa9',
                         },
                         mint: {
-                            DEFAULT: '#00B7B5',
-                            500: '#00B7B5',
+                            DEFAULT: '#D45060',
+                            500: '#D45060',
                             400: '#22d3d1',
                         },
                         emerald: {
-                            50: '#F4F4F4',
+                            50: '#FFF9F2',
                             100: '#e0f7f6',
                             200: '#b2ebe9',
                             300: '#80dedc',
-                            400: '#00B7B5',
-                            500: '#018790',
-                            600: '#005461',
-                            700: '#004853',
-                            800: '#003c45',
-                            900: '#002d35',
+                            400: '#D45060',
+                            500: '#5C0017',
+                            600: '#800020',
+                            700: '#5C0017',
+                            800: '#5C0017',
+                            900: '#4d0013',
                         }
                     }
                 }
@@ -68,14 +68,14 @@
             <div>
                 <!-- Brand -->
                 <div class="p-6 border-b border-slate-800 flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-xl bg-[#00B7B5] text-[#005461] font-black flex items-center justify-center text-base shadow-sm">
+                    <div class="w-9 h-9 rounded-xl bg-[#D45060] text-white font-black flex items-center justify-center text-base shadow-sm">
                         I
                     </div>
                     <div>
                         <div class="flex items-center gap-1.5">
                             <span class="text-base font-extrabold text-white">ICSET 2027</span>
                         </div>
-                        <span class="text-[10px] font-bold text-[#00B7B5] uppercase tracking-widest">Admin Control</span>
+                        <span class="text-[10px] font-bold text-[#D45060] uppercase tracking-widest">Admin Control</span>
                     </div>
                 </div>
 

@@ -8,56 +8,57 @@
 @theme {
     --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
     
-    --color-petrol: #005461;
-    --color-teal-mid: #018790;
-    --color-mint-accent: #00B7B5;
-    --color-offwhite: #F4F4F4;
+    --color-burgundy: #800020;
+    --color-wine-dark: #5C0017;
+    --color-rose-accent: #D45060;
+    --color-cream: #F3E6D5;
+    --color-ivory: #FFF9F2;
 
-    --color-brand-primary: #005461;
-    --color-brand-secondary: #018790;
-    --color-brand-accent: #00B7B5;
-    --color-brand-light: #F4F4F4;
+    --color-brand-primary: #800020;
+    --color-brand-secondary: #5C0017;
+    --color-brand-accent: #D45060;
+    --color-brand-light: #FFF9F2;
 }
 
-/* Professional solid components using Teal & Mint palette (No gradients) */
+/* Professional solid components using Burgundy & Rose palette (No gradients) */
 .icset-factsheet-card {
-    background-color: #005461;
+    background-color: #800020;
     color: #ffffff;
-    border: 1px solid rgba(0, 183, 181, 0.35);
+    border: 1px solid rgba(212, 80, 96, 0.35);
 }
 
 .icset-keynote-card {
-    background-color: #005461;
+    background-color: #800020;
     color: #ffffff;
-    border: 1px solid rgba(0, 183, 181, 0.35);
+    border: 1px solid rgba(212, 80, 96, 0.35);
 }
 
 .icset-speaker-avatar {
-    background-color: #018790 !important;
+    background-color: #5C0017 !important;
     color: #ffffff !important;
     font-weight: 800 !important;
 }
 
 .icset-proceedings-card {
-    background-color: #005461;
+    background-color: #800020;
     color: #ffffff;
-    border: 1px solid rgba(0, 183, 181, 0.35);
+    border: 1px solid rgba(212, 80, 96, 0.35);
 }
 
 .icset-featured-pricing-card {
-    background-color: #005461 !important;
+    background-color: #800020 !important;
     color: #ffffff !important;
-    border: 2px solid #00B7B5 !important;
+    border: 2px solid #D45060 !important;
 }
 
 .icset-venue-card {
-    background-color: #005461 !important;
+    background-color: #800020 !important;
     color: #ffffff !important;
-    border: 1px solid rgba(0, 183, 181, 0.35);
+    border: 1px solid rgba(212, 80, 96, 0.35);
 }
 
 .icset-cfp-card {
-    background-color: #005461 !important;
+    background-color: #800020 !important;
     color: #ffffff !important;
-    border: 1px solid rgba(0, 183, 181, 0.35);
+    border: 1px solid rgba(212, 80, 96, 0.35);
 }

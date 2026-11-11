@@ -1,10 +1,10 @@
-<section id="partners" class="py-20 lg:py-24 bg-slate-50 relative border-t border-slate-200">
+﻿<section id="partners" class="py-20 lg:py-24 bg-slate-50 relative border-t border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Header -->
         <div class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#F4F4F4] text-[#005461] text-xs font-bold uppercase tracking-wider mb-4 border border-[#018790]/30 shadow-sm">
-                <i data-lucide="building-2" class="w-4 h-4 text-[#018790]"></i>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#FFF9F2] text-[#800020] text-xs font-bold uppercase tracking-wider mb-4 border border-[#5C0017]/30 shadow-sm">
+                <i data-lucide="building-2" class="w-4 h-4 text-[#5C0017]"></i>
                 <span>{{ __('Academic & Strategic Partners') }}</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -26,12 +26,12 @@
             <!-- Tier 1: Publication & Indexing Partners -->
             @if($indexingPartners->isNotEmpty())
             <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-center">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#005461] block mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#800020] block mb-6">
                     {{ __('Proceedings & Journal Indexing Partners') }}
                 </span>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center">
                     @foreach($indexingPartners as $partner)
-                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center hover:border-[#018790]/50 hover:shadow-md transition-all">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center justify-center hover:border-[#5C0017]/50 hover:shadow-md transition-all">
                         @if($partner->logo_image)
                         <div class="w-14 h-12 bg-white rounded-xl p-1.5 flex items-center justify-center border border-slate-200/80 shadow-sm mb-2">
                             <img src="{{ asset('storage/' . $partner->logo_image) }}" alt="{{ $partner->name }}" class="max-h-full max-w-full object-contain">
@@ -58,18 +58,18 @@
             <!-- Tier 2: University Co-Hosts -->
             @if($universityPartners->isNotEmpty())
             <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm text-center">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#018790] block mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#5C0017] block mb-6">
                     {{ __('International Academic Co-Hosts & Participating Institutions') }}
                 </span>
                 <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 items-center">
                     @foreach($universityPartners as $partner)
-                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-[#018790]/50 transition-all flex flex-col items-center">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 hover:border-[#5C0017]/50 transition-all flex flex-col items-center">
                         @if($partner->logo_image)
                         <div class="w-12 h-11 bg-white rounded-xl p-1 flex items-center justify-center border border-slate-200/80 shadow-sm mb-2">
                             <img src="{{ asset('storage/' . $partner->logo_image) }}" alt="{{ $partner->name }}" class="max-h-full max-w-full object-contain">
                         </div>
                         @else
-                        <div class="w-11 h-11 rounded-xl font-extrabold flex items-center justify-center text-xs mb-2 shadow-sm text-white bg-[#018790]">
+                        <div class="w-11 h-11 rounded-xl font-extrabold flex items-center justify-center text-xs mb-2 shadow-sm text-white bg-[#5C0017]">
                             {{ $partner->logo_abbr ?? substr($partner->name, 0, 3) }}
                         </div>
                         @endif
@@ -98,7 +98,7 @@
                         elseif (str_contains($partnerLower, 'bursa efek') || str_contains($partnerLower, 'bei')) $logoImg = asset('images/logo-bei.png');
                         elseif (str_contains($partnerLower, 'akuntan') || str_contains($partnerLower, 'iai')) $logoImg = asset('images/logo-iai.png');
                     @endphp
-                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4 hover:border-[#018790]/50 transition-all">
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-4 hover:border-[#5C0017]/50 transition-all">
                         @if($logoImg)
                         <div class="w-14 h-12 bg-white rounded-xl p-1.5 flex items-center justify-center border border-slate-200/80 shadow-sm flex-shrink-0">
                             <img src="{{ $logoImg }}" alt="{{ $partner->name }}" class="max-h-full max-w-full object-contain">

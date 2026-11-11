@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
@@ -30,16 +30,16 @@
                 <span>{{ __('Back to Website') }}</span>
             </a>
             <span class="text-slate-600">|</span>
-            <span class="text-xs font-bold text-[#00B7B5]">{{ __('Official Conference Brochure & Factsheet (PDF-Ready)') }}</span>
+            <span class="text-xs font-bold text-[#D45060]">{{ __('Official Conference Brochure & Factsheet (PDF-Ready)') }}</span>
         </div>
 
         <div class="flex items-center gap-3">
-            <button onclick="window.print()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#00B7B5] hover:bg-[#00B7B5]/90 text-[#005461] font-black text-xs shadow-md transition-all">
-                <i data-lucide="printer" class="w-4 h-4 text-[#005461]"></i>
+            <button onclick="window.print()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#D45060] hover:bg-[#D45060]/90 text-white font-black text-xs shadow-md transition-all">
+                <i data-lucide="printer" class="w-4 h-4 text-white"></i>
                 <span>{{ __('Print / Save as PDF') }}</span>
             </button>
-            <a href="{{ route('registration.index') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#005461] hover:bg-[#018790] text-white font-bold text-xs shadow-md transition-all">
-                <i data-lucide="user-plus" class="w-4 h-4 text-[#00B7B5]"></i>
+            <a href="{{ route('registration.index') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#800020] hover:bg-[#5C0017] text-white font-bold text-xs shadow-md transition-all">
+                <i data-lucide="user-plus" class="w-4 h-4 text-[#D45060]"></i>
                 <span>{{ __('Register Now') }}</span>
             </a>
         </div>
@@ -49,14 +49,14 @@
     <main class="print-page max-w-5xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden p-8 sm:p-12">
         
         <!-- Document Header / Letterhead -->
-        <header class="pb-8 border-b-2 border-[#005461] mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <header class="pb-8 border-b-2 border-[#800020] mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-2xl bg-[#018790] text-white flex items-center justify-center font-black text-2xl shadow-md">
+                <div class="w-16 h-16 rounded-2xl bg-[#5C0017] text-white flex items-center justify-center font-black text-2xl shadow-md">
                     I
                 </div>
                 <div>
                     <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">ICSET 2027</h1>
-                    <p class="text-xs font-bold uppercase tracking-wider text-[#005461]">The 1st International Conference on Sustainable Economic Transformation</p>
+                    <p class="text-xs font-bold uppercase tracking-wider text-[#800020]">The 1st International Conference on Sustainable Economic Transformation</p>
                     <p class="text-xs text-slate-500">Faculty of Economics and Business, Universitas Wahid Hasyim (UNWAHAS)</p>
                 </div>
             </div>

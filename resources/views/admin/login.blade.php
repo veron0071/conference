@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style> body { font-family: 'Plus Jakarta Sans', sans-serif; } </style>
 </head>
-<body class="bg-slate-900 min-h-screen flex items-center justify-center p-4 selection:bg-[#00B7B5] selection:text-[#005461]">
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-4 selection:bg-[#D45060] selection:text-[#800020]">
     
     <div class="max-w-md w-full">
         <!-- Brand Header -->
         <div class="text-center mb-8">
-            <div class="w-14 h-14 rounded-2xl bg-[#00B7B5] text-[#005461] font-black text-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
+            <div class="w-14 h-14 rounded-2xl bg-[#D45060] text-white font-black text-2xl flex items-center justify-center mx-auto mb-4 shadow-md">
                 I
             </div>
             <h1 class="text-2xl font-extrabold text-white tracking-tight">ICSET 2027 Admin Portal</h1>
@@ -39,31 +39,31 @@
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Email Address</label>
                     <input type="email" name="email" value="{{ old('email', 'admin@icset2027.unwahas.ac.id') }}" required autofocus
                         placeholder="admin@icset2027.unwahas.ac.id"
-                        class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-[#00B7B5] focus:border-[#00B7B5] outline-none text-sm transition-all">
+                        class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-[#D45060] focus:border-[#D45060] outline-none text-sm transition-all">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-1.5">Password</label>
                     <input type="password" name="password" required
                         placeholder="••••••••"
-                        class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-[#00B7B5] focus:border-[#00B7B5] outline-none text-sm transition-all">
+                        class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-[#D45060] focus:border-[#D45060] outline-none text-sm transition-all">
                 </div>
 
                 <div class="flex items-center justify-between text-xs text-slate-400">
                     <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" name="remember" class="rounded border-slate-700 text-[#018790] focus:ring-[#018790]">
+                        <input type="checkbox" name="remember" class="rounded border-slate-700 text-[#5C0017] focus:ring-[#5C0017]">
                         <span>Remember me</span>
                     </label>
                 </div>
 
-                <button type="submit" class="w-full py-3.5 px-4 rounded-xl font-bold text-[#005461] bg-[#00B7B5] hover:bg-[#00B7B5]/90 shadow-md text-sm transition-all">
+                <button type="submit" class="w-full py-3.5 px-4 rounded-xl font-bold text-white bg-[#D45060] hover:bg-[#D45060]/90 shadow-md text-sm transition-all">
                     Sign In to Dashboard
                 </button>
             </form>
 
             <div class="mt-6 pt-5 border-t border-slate-700 text-center">
                 <p class="text-[11px] text-slate-400">Default login credentials:</p>
-                <p class="text-[11px] text-[#00B7B5] font-mono mt-0.5">admin@icset2027.unwahas.ac.id / admin12345</p>
+                <p class="text-[11px] text-[#D45060] font-mono mt-0.5">admin@icset2027.unwahas.ac.id / admin12345</p>
             </div>
         </div>
 
